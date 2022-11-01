@@ -4,7 +4,12 @@ export default function Todo(props) {
   return (
     <li className="todo stackSmall">
       <div className="c-cb">
-        <input id="todo-0" type="checkbox" defaultChecked={props.completed} />
+        <input
+          id={props.id}
+          type="checkbox"
+          defaultChecked={props.completed}
+          onChange={() => props.toggleTaskCompleted(props.id)}
+        />
         <label className="todoLabel" htmlFor={props.id}>
           {props.name}
         </label>
@@ -14,7 +19,11 @@ export default function Todo(props) {
         <button type="button" className="btn">
           Editar <span className="visuallyHidden">{props.name}</span>
         </button>
-        <button type="button" className="btn btnDanger">
+        <button
+          type="button"
+          className="btn btnDanger"
+          onClick={() => props.deleteTask(props.id)}
+        >
           Deletar <span className="visuallyHidden">{props.name}</span>
         </button>
       </div>
