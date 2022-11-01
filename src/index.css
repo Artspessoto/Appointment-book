@@ -1,13 +1,11 @@
 /* RESETS */
+
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
-/* *:focus {
-  outline: 3px dashed #228bec;
-  outline-offset: 0;
-} */
+
 html {
   font: 62.5% / 1.15 sans-serif;
 }
@@ -68,6 +66,7 @@ body {
   }
 }
 /*END RESETS*/
+
 /* GLOBAL STYLES */
 .form-group > input[type="text"] {
   display: inline-block;
