@@ -1,16 +1,26 @@
 import Todo from "./components/Todo";
 import Form from "./components/Form";
 import FilterButton from "./components/FilterButton";
-// import {v4 as uuid} from "uuid";
+import { useState } from 'react';
+
 
 function App(props) {
-  const taskList = props.tasks.map((task) => (
+  const [tasks, setTasks] = useState(props.tasks);
+
+  //waiting for form input data 
+  function addTask(name){
+    const newTask = { id: "id", name, completed: false };
+    setTasks([...tasks, newTask])
+  }
+  
+  const taskList = tasks.map((task) => (
     <Todo id={task.id} name={task.name} completed={task.completed} key={task.id} />
   ));
+
   return (
     <div className="todoapp stackLarge">
       <h1>Agenda</h1>
-      <Form />
+      <Form addTask={addTask}/>
       <div className="filters btnGroup stackException">
         {/* all works listed, pending and finished */}
         <FilterButton name="Todas"/>
